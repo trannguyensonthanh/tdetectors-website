@@ -25,10 +25,8 @@ const ProblemSection = () => {
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Thực trạng</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    TP.HCM với hàng triệu phương tiện lưu thông mỗi ngày, việc
-                    giám sát và theo dõi hành trình của từng phương tiện qua
-                    mạng lưới camera không giao nhau (non-overlapping) là một
-                    thách thức lớn.
+                    Lưu lượng xe lớn và hệ thống camera không chồng lấp khiến
+                    việc theo dõi phương tiện trở nên khó khăn.
                   </p>
                 </div>
               </div>
@@ -38,9 +36,8 @@ const ProblemSection = () => {
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Nhu cầu</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Cần một giải pháp giám sát thông minh, tự động có khả năng
-                    tái định danh phương tiện chính xác qua nhiều camera mà
-                    không phụ thuộc vào phần cứng đắt đỏ.
+                    Cần giải pháp tự động tái định danh phương tiện qua nhiều
+                    camera, chi phí thấp.
                   </p>
                 </div>
               </div>

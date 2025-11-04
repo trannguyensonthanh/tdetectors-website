@@ -8,13 +8,6 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: '::',
     port: 8080,
-    origin: 'https://guided-wallaby-measured.ngrok-free.app',
-    cors: true,
-    hmr: {
-      protocol: 'wss',
-      host: 'guided-wallaby-measured.ngrok-free.app',
-      clientPort: 443,
-    },
   },
   plugins: [react(), mode === 'development' && componentTagger()].filter(
     Boolean

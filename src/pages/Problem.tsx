@@ -141,7 +141,7 @@ export default function Problem() {
 
               <div className="bg-primary/5 text-primary px-4 py-3 rounded-lg text-xl font-medium border border-primary/20">
                 Kết luận:
-                <div className="text-white text-lg">
+                <div className="text-lg text-gray-700 dark:text-gray-300">
                   Cần một hệ thống thông minh, bền vững và khả thi về mặt chi
                   phí để biến mạng lưới camera thành nguồn dữ liệu chủ động cho
                   an ninh và quản lý giao thông.

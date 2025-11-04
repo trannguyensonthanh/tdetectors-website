@@ -91,7 +91,7 @@ export default function Solution() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/20 text-white hover:bg-white/5"
+                  className="border-primary/20 text-primary hover:bg-primary/10 dark:border-white/20 dark:text-white dark:hover:bg-white/5"
                 >
                   Kết quả đạt được
                 </Button>
@@ -260,7 +260,7 @@ export default function Solution() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary/20 hover:bg-primary/10"
+                className="border-primary/20 text-primary hover:bg-primary/10 dark:border-white/20 dark:text-white dark:hover:bg-white/5"
               >
                 Tìm hiểu về YOLOv12
               </Button>

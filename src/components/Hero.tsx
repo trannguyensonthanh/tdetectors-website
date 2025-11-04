@@ -40,22 +40,22 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Link to="/solution">
+            <Link to="/demo">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow group"
               >
-                Khám phá giải pháp
+                Xem Demo
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/demo">
+            <Link to="/solution">
               <Button
                 size="lg"
                 variant="outline"
                 className="border-primary/20 hover:bg-primary/10"
               >
-                Xem Demo
+                Khám phá giải pháp
               </Button>
             </Link>
           </div>

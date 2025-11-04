@@ -118,18 +118,26 @@ export default function BoTSort() {
                 Các tracker đơn giản (như SORT) chủ yếu dựa vào vị trí và kích
                 thước bounding box (IoU) để ghép detections giữa các frame. Khi
                 một chiếc xe{' '}
-                <strong className="!text-white">bị che khuất tạm thời</strong> —
-                ví dụ: bị xe khác che ngang, bị vật cản đi qua, hoặc do motion
+                <strong className="font-semibold text-foreground dark:text-white">
+                  bị che khuất tạm thời
+                </strong>{' '}
+                — ví dụ: bị xe khác che ngang, bị vật cản đi qua, hoặc do motion
                 blur — detector có thể không phát hiện được nó trong vài frame
                 liên tiếp.
               </p>
               <p className="mb-4">
                 Khi xe đó xuất hiện lại, nếu hệ thống chỉ so khớp theo vị trí
                 thì rất dễ{' '}
-                <strong className="!text-white">gán một ID mới</strong> cho cùng
-                một đối tượng. Hiện tượng này gọi là <em>ID Switch</em>, và nó
-                làm suy giảm độ tin cậy của dữ liệu theo dõi (ví dụ: sai lệch
-                thống kê hành vi, mất liên tục trajectory, giảm mAP tracking).
+                <strong className="font-semibold text-foreground dark:text-white">
+                  gán một ID mới
+                </strong>{' '}
+                cho cùng một đối tượng. Hiện tượng này gọi là{' '}
+                <em className="italic text-foreground/80 dark:text-white/80">
+                  ID Switch
+                </em>
+                , và nó làm suy giảm độ tin cậy của dữ liệu theo dõi (ví dụ: sai
+                lệch thống kê hành vi, mất liên tục trajectory, giảm mAP
+                tracking).
               </p>
               <p className="mb-4">
                 Nguyên nhân phổ biến dẫn tới ID Switch:
@@ -154,18 +162,25 @@ export default function BoTSort() {
               <p className="mb-4">
                 Cách giảm thiểu ID Switch trong BoT-SORT:
                 <ul className="mt-2 ml-4 list-disc">
-                  <li>
+                  <li className="text-muted-foreground">
                     Sử dụng{' '}
-                    <strong className="!text-white">Re‑ID embedding</strong> để
-                    so sánh đặc trưng ngoại hình, giúp nhận diện lại đối tượng
-                    ngay cả khi vị trí thay đổi.
+                    <strong className="text-foreground dark:text-white font-semibold">
+                      Re‑ID embedding
+                    </strong>{' '}
+                    để so sánh đặc trưng ngoại hình, giúp nhận diện lại đối
+                    tượng ngay cả khi vị trí thay đổi.
                   </li>
-                  <li>
+                  <li className="text-muted-foreground">
                     Áp dụng{' '}
-                    <strong className="!text-white">motion gating</strong>{' '}
-                    (Mahalanobis) và Kalman Filter để loại trừ các ghép phi lý
-                    và giữ track tồn tại trong một số frame khi bị mất
-                    detection.
+                    <strong className="text-foreground dark:text-white font-semibold">
+                      motion gating
+                    </strong>{' '}
+                    (Mahalanobis) và{' '}
+                    <strong className="text-foreground dark:text-white font-semibold">
+                      Kalman Filter
+                    </strong>{' '}
+                    để loại trừ các ghép phi lý và giữ track tồn tại trong một
+                    số frame khi bị mất detection.
                   </li>
                   <li>
                     Tách detections theo độ tin cậy (high/low score) để ưu tiên
@@ -205,8 +220,11 @@ export default function BoTSort() {
                 <h3 className="text-2xl font-bold mb-2 text-primary">
                   1. Dự đoán (Prediction)
                 </h3>
-                <p className="text-tech-subtle">
-                  Sử dụng <strong className="text-white">Kalman Filter</strong>{' '}
+                <p className="text-tech-subtle dark:text-white/90">
+                  Sử dụng{' '}
+                  <strong className="text-foreground dark:text-white font-semibold">
+                    Kalman Filter
+                  </strong>{' '}
                   để ước tính vị trí tiếp theo của mỗi track, đồng thời bù trừ
                   cho chuyển động của camera (CMC).
                 </p>
@@ -215,15 +233,19 @@ export default function BoTSort() {
                 <h3 className="text-2xl font-bold mb-2 text-primary">
                   2. Liên kết Kép (Dual Association)
                 </h3>
-                <p className="text-tech-subtle">
-                  <strong className="text-white">Giai đoạn 1 (Re-ID):</strong>{' '}
+                <p className="text-tech-subtle dark:text-white/90">
+                  <strong className="text-foreground dark:text-white font-semibold">
+                    Giai đoạn 1 (Re-ID):
+                  </strong>{' '}
                   Ưu tiên khớp các xe có "dấu vân tay hình ảnh" giống nhau. Cực
                   kỳ hiệu quả khi xe xuất hiện lại sau khi bị che khuất.
                 </p>
-                <p className="text-tech-subtle mt-2">
-                  <strong className="text-white">Giai đoạn 2 (IoU):</strong> Với
-                  các xe còn lại, sử dụng phương pháp khớp vị trí (IoU) cổ điển
-                  để "cứu" các trường hợp hình ảnh bị mờ hoặc nhiễu.
+                <p className="text-tech-subtle dark:text-white/90 mt-2">
+                  <strong className="text-foreground dark:text-white font-semibold">
+                    Giai đoạn 2 (IoU):
+                  </strong>{' '}
+                  Với các xe còn lại, sử dụng phương pháp khớp vị trí (IoU) cổ
+                  điển để "cứu" các trường hợp hình ảnh bị mờ hoặc nhiễu.
                 </p>
               </div>
             </div>

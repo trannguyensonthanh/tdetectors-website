@@ -71,26 +71,26 @@ export default function Faiss() {
                 </div>
               </div>
 
-              <div className="bg-red-900/40 border border-red-500 p-4 rounded-lg flex items-start gap-3">
-                <AlertTriangle className="h-6 w-6 text-red-400 flex-shrink-0" />
+              <div className="bg-red-50 dark:bg-red-900/40 border border-red-200 dark:border-red-500 p-4 rounded-lg flex items-start gap-3">
+                <AlertTriangle className="h-6 w-6 text-red-600 dark:text-red-400 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-white">
+                  <p className="font-semibold text-red-900 dark:text-white">
                     So sánh tuần tự (Brute-force)
                   </p>
-                  <p className="text-sm text-red-200">
+                  <p className="text-sm text-red-700 dark:text-red-200">
                     Mỗi truy vấn phải đo khoảng cách đến mọi vector → độ trễ
                     lớn, chi phí CPU/RAM cực cao.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-green-900/30 border border-green-600 p-4 rounded-lg flex items-start gap-3">
-                <Database className="h-6 w-6 text-green-400 flex-shrink-0" />
+              <div className="bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-600 p-4 rounded-lg flex items-start gap-3">
+                <Database className="h-6 w-6 text-green-600 dark:text-green-400 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-white">
+                  <p className="font-semibold text-green-900 dark:text-white">
                     Giải pháp đề xuất: Faiss (ANN)
                   </p>
-                  <p className="text-sm text-green-200">
+                  <p className="text-sm text-green-700 dark:text-green-200">
                     Xây dựng index (IVF, PQ, HNSW, …) để truy vấn Top‑K trong
                     milli → micro giây với tổn thất độ chính xác rất nhỏ.
                   </p>
@@ -283,9 +283,7 @@ export default function Faiss() {
                     <h3 className="font-heading font-bold text-foreground mb-2 text-2xl">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground text-xl">
-                      {item.desc}
-                    </p>
+                    <p className="text-muted-foreground text-xl">{item.desc}</p>
                   </div>
                 </div>
               ))}

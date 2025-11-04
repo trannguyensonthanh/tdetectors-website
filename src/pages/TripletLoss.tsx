@@ -73,11 +73,6 @@ export default function TripletLoss() {
           <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {/* ANCHOR */}
             <div className="bg-tech-card rounded-lg p-8 border-2 border-blue-500/80 text-center flex flex-col items-center">
-              {/* 
-                  ### YÊU CẦU HÌNH ẢNH #2.1 ###
-                  - Tên file gợi ý: `public/images/triplet-anchor.jpg`
-                  - Nội dung: Chọn một ảnh xe bất kỳ làm "anchor".
-                */}
               <img
                 src={tripletAnchor}
                 alt="Anchor Vehicle"
@@ -92,11 +87,6 @@ export default function TripletLoss() {
 
             {/* POSITIVE */}
             <div className="bg-tech-card rounded-lg p-8 border-2 border-green-500/80 text-center flex flex-col items-center">
-              {/* 
-                  ### YÊU CẦU HÌNH ẢNH #2.2 ###
-                  - Tên file gợi ý: `public/images/triplet-positive.jpg`
-                  - Nội dung: Chọn một ảnh khác của CÙNG chiếc xe với ảnh Anchor, nhưng ở góc chụp hoặc điều kiện ánh sáng khác.
-                */}
               <img
                 src={tripletPostitive}
                 alt="Positive Vehicle"
@@ -106,19 +96,17 @@ export default function TripletLoss() {
               <h3 className="text-2xl font-bold text-green-400 mt-3">
                 Positive
               </h3>
-              <p className="text-tech-subtle mt-2 flex-grow">
-                Một ảnh khác của <strong className="!text-white">cùng</strong>{' '}
+              <p className="text-tech-subtle dark:text-gray-300 mt-2 flex-grow">
+                Một ảnh khác của{' '}
+                <strong className="!text-green-500 dark:!text-green-300">
+                  cùng
+                </strong>{' '}
                 phương tiện.
               </p>
             </div>
 
             {/* NEGATIVE */}
             <div className="bg-tech-card rounded-lg p-8 border-2 border-red-500/80 text-center flex flex-col items-center">
-              {/* 
-                  ### YÊU CẦU HÌNH ẢNH #2.3 ###
-                  - Tên file gợi ý: `public/images/triplet-negative.jpg`
-                  - Nội dung: Chọn ảnh của một chiếc xe hoàn toàn KHÁC.
-                */}
               <img
                 src={tripletNegative}
                 alt="Negative Vehicle"
@@ -126,9 +114,12 @@ export default function TripletLoss() {
               />
               <XCircle className="h-12 w-12 text-red-400 mx-auto" />
               <h3 className="text-2xl font-bold text-red-400 mt-3">Negative</h3>
-              <p className="text-tech-subtle mt-2 flex-grow">
+              <p className="text-tech-subtle dark:text-gray-300 mt-2 flex-grow">
                 Một ảnh của một phương tiện{' '}
-                <strong className="!text-white">khác</strong>.
+                <strong className="!text-red-400 dark:!text-red-300">
+                  khác
+                </strong>
+                .
               </p>
             </div>
           </div>
@@ -154,24 +145,42 @@ export default function TripletLoss() {
                 <div className="text-green-400 mt-1">
                   <CheckCircle2 />
                 </div>
-                <p className="text-tech-subtle">
-                  <strong className="!text-white">"Kéo gần":</strong> Buộc
-                  khoảng cách giữa{' '}
-                  <strong className="text-blue-400">Anchor</strong> và{' '}
-                  <strong className="text-green-400">Positive</strong> phải càng
-                  nhỏ càng tốt.
+                <p className="text-tech-subtle dark:text-gray-300">
+                  <strong className="text-gray-900 dark:text-white">
+                    "Kéo gần":
+                  </strong>{' '}
+                  Buộc khoảng cách giữa{' '}
+                  <strong className="text-blue-400 dark:text-blue-300">
+                    Anchor
+                  </strong>{' '}
+                  và{' '}
+                  <strong className="text-green-400 dark:text-green-300">
+                    Positive
+                  </strong>{' '}
+                  phải càng nhỏ càng tốt.
                 </p>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="text-red-400 mt-1">
+                <div className="text-red-400 dark:text-red-300 mt-1">
                   <MoveHorizontal />
                 </div>
-                <p className="text-tech-subtle">
-                  <strong className="!text-white">"Đẩy xa":</strong> Buộc khoảng
-                  cách giữa <strong className="text-blue-400">Anchor</strong> và{' '}
-                  <strong className="text-red-400">Negative</strong> phải lớn
-                  hơn khoảng cách "kéo gần" ít nhất một khoảng{' '}
-                  <strong className="text-tech-highlight">margin</strong>.
+                <p className="text-tech-subtle dark:text-gray-300">
+                  <strong className="text-gray-900 dark:text-white">
+                    "Đẩy xa":
+                  </strong>{' '}
+                  Buộc khoảng cách giữa{' '}
+                  <strong className="text-blue-400 dark:text-blue-300">
+                    Anchor
+                  </strong>{' '}
+                  và{' '}
+                  <strong className="text-red-400 dark:text-red-300">
+                    Negative
+                  </strong>{' '}
+                  phải lớn hơn khoảng cách "kéo gần" ít nhất một khoảng{' '}
+                  <strong className="text-tech-highlight dark:text-yellow-300">
+                    margin
+                  </strong>
+                  .
                 </p>
               </div>
             </div>

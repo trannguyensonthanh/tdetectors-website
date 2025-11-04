@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  =================================================================
+  DESIGN SYSTEM V2: DUAL THEME (LIGHT & DARK)
+  =================================================================
+  - :root định nghĩa màu cho theme SÁNG (mặc định).
+  - .dark định nghĩa lại các màu đó cho theme TỐI.
+*/
+@layer base {
+  :root {
+    /* === LIGHT THEME (DEFAULT) === */
+    --background: 0 0% 100%; /* White */
+    --foreground: 212 65% 11%; /* Dark Blue - Tech BG cũ */
+
+    --card: 210 40% 98%; /* Almost White - Foreground cũ */
+    --card-foreground: 212 65% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 212 65% 11%;
+
+    --primary: 4 90% 55%; /* Red hơi đậm hơn để dễ đọc trên nền sáng */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 212 65% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 4 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 40% 90%;
+    --input: 210 40% 90%;
+    --ring: 4 90% 55%;
+
+    --radius: 0.75rem;
+
+    /* Gradients for Light Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(4, 90%, 55%) 0%, hsl(25, 95%, 50%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(210, 40%, 96%) 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.95) 100%);
+    
+    /* Shadows for Light Theme (nhạt hơn) */
+    --shadow-glow: 0 0 40px hsla(4, 90%, 55%, 0.2);
+    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    /* === DARK THEME (OVERRIDE) === */
+    /* Đây là các biến màu gốc của bạn */
+    --background: 212 65% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 35% 14%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 35% 14%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 4 100% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 35% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 35% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 4 100% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 35% 22%;
+    --input: 217 35% 22%;
+    --ring: 4 100% 60%;
+    
+    /* Gradients for Dark Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(4, 100%, 60%) 0%, hsl(25, 100%, 55%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(217, 35%, 14%) 0%, hsl(217, 35%, 20%) 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(10, 25, 47, 0.8) 0%, rgba(10, 25, 47, 0.95) 100%);
+    
+    /* Shadows for Dark Theme */
+    --shadow-glow: 0 0 40px hsla(4, 100%, 60%, 0.3);
+    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* 
+  =================================================================
+  BASE STYLES
+  =================================================================
+*/
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Thêm hiệu ứng chuyển màu mượt mà khi đổi theme */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}

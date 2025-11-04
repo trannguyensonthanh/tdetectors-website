@@ -43,7 +43,7 @@ export default function Team() {
       name: 'Nguyễn Duy Thái',
       role: 'Team Leader & System Architect & Lead AI Model Engineer',
       responsibilities:
-        'Responsible for overall system architecture design and project management.',
+        'Chịu trách nhiệm thiết kế kiến trúc hệ thống tổng thể và quản lý dự án.',
       skills: [
         'System Design',
         'OpenVINO',

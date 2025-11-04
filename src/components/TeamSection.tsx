@@ -4,19 +4,19 @@ import { Play, User, Users } from 'lucide-react';
 const TeamSection = () => {
   const team = [
     {
-      name: 'Nguyen Duy Thai',
+      name: 'Nguyễn Duy Thái',
       role: 'Team Leader & System Architect & Lead AI Model Engineer',
       description:
         'Responsible for overall system architecture design and project management.',
     },
     {
-      name: 'Tran Nguyen Son Thanh',
+      name: 'Trần Nguyễn Sơn Thành',
       role: 'AI Model Engineer & Data Scientist (Support and Optimization)',
       description: 'Supports development and optimization of AI models.',
     },
     {
-      name: 'Cao Duy Thai',
-      role: 'Lead Data & Integration Specialist',
+      name: 'Cao Duy Thái',
+      role: 'Data & Integration Specialist',
       description: 'Handles data processing and system integration.',
     },
   ];

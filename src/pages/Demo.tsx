@@ -274,7 +274,7 @@ export default function Demo() {
             Tài nguyên & Mã nguồn
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-card rounded-lg p-8 border border-border text-center">
+            {/* <div className="bg-card rounded-lg p-8 border border-border text-center">
               <Github className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-heading font-bold text-foreground mb-3">
                 GitHub Repository
@@ -289,7 +289,7 @@ export default function Demo() {
                   View on GitHub
                 </Button>
               </a>
-            </div>
+            </div> */}
 
             <div className="bg-card rounded-lg p-8 border border-border text-center">
               <ExternalLink className="h-12 w-12 text-primary mx-auto mb-4" />

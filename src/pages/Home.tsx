@@ -26,7 +26,7 @@ export default function Home() {
       <FutureSection />
       <ContactSection />
 
-      {/* CTA Section */}
+      {/* CTA Section
       <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-primary rounded-2xl p-12 lg:p-16 text-center">
@@ -62,7 +62,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

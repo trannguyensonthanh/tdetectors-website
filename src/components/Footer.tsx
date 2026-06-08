@@ -133,17 +133,6 @@ export default function Footer() {
                   n22dccn077@student.ptithcm.edu.vn
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Github className="h-5 w-5 text-primary flex-shrink-0" />
-                <a
-                  href=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  GitHub Repository
-                </a>
-              </li>
             </ul>
           </div>
         </div>

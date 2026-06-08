@@ -317,7 +317,7 @@ export default function Demo() {
             </div>
           </div>
 
-          {/* QR Code Section */}
+          {/* QR Code Section
           <div className="mt-12 bg-gradient-primary rounded-2xl p-8 lg:p-12 text-center">
             <h3 className="text-2xl lg:text-3xl font-heading font-bold text-white mb-6">
               Quét mã QR để truy cập ngay
@@ -335,7 +335,7 @@ export default function Demo() {
               Quét mã QR bằng điện thoại để truy cập repository GitHub và tài
               liệu
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

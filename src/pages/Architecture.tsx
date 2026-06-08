@@ -157,32 +157,61 @@ export default function Architecture() {
                       BƯỚC 3
                     </div>
                     <h3 className="text-2xl font-heading font-bold text-foreground">
-                      License Plate Recognition
+                      License Plate Recognition (LRLPR)
                     </h3>
                   </div>
                 </div>
                 <p className="text-muted-foreground mb-4">
-                  Trích xuất biển số xe (nếu nhìn thấy rõ) để làm đặc trưng bổ
-                  sung cho Re-ID. Tăng độ chính xác khi biển số có thể đọc được.
+                  Module nhận diện biển số xe độ phân giải thấp đạt{' '}
+                  <strong>Top 10 ICPR 2026</strong>. Khi biển số bị mờ, nhòe do
+                  camera chiếu từ xa, ảnh sẽ được đưa qua pipeline ResTranOCR V2
+                  (ResNet34 + CBAM + Quality Attention Fusion + Transformer) kết
+                  hợp K-Fold Ensemble & TTA.
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>OCR model cho biển số Việt Nam</span>
+                    <span>
+                      Biển số xe = <strong>định danh tuyệt đối</strong>, ưu tiên
+                      hơn đặc trưng ngoại hình
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Fallback to visual Re-ID nếu không đọc được</span>
+                    <span>
+                      Khi biển số LR không đọc được → fallback sang Visual Re-ID
+                      (ViT)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>
+                      Accuracy 76-79% trên Blind Test Set (SOTA chỉ 50-60%)
+                    </span>
                   </li>
                 </ul>
+                <a
+                  href="/lrlpr"
+                  className="inline-flex items-center gap-2 mt-4 text-sm text-primary hover:underline font-medium"
+                >
+                  Xem chi tiết Module LRLPR →
+                </a>
               </div>
               <div className="bg-card rounded-lg p-8 border border-border">
                 <div className="font-mono text-sm text-muted-foreground">
-                  <div className="text-primary mb-2"># LPR Module</div>
-                  <div>Crop: Vehicle BBox</div>
-                  <div>Detect: License plate</div>
-                  <div>OCR: "51A-12345"</div>
-                  <div className="mt-4 text-primary">→ Optional attribute</div>
+                  <div className="text-primary mb-2">
+                    # LRLPR Module (ICPR 2026 Top 10)
+                  </div>
+                  <div>Crop: Vehicle BBox → LP region</div>
+                  <div>STN: Rectify perspective</div>
+                  <div>ResNet34+CBAM: Feature extract</div>
+                  <div>QAF: Fuse 5 frames quality</div>
+                  <div>Transformer+CTC: Decode chars</div>
+                  <div>5-Fold × 4 TTA = 20 predictions</div>
+                  <div>Soft-Voting → "51A-12345"</div>
+                  <div className="mt-4 text-primary">
+                    → Absolute Identity (conf: 0.97)
+                  </div>
                 </div>
               </div>
             </div>

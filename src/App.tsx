@@ -17,6 +17,8 @@ import TripletLoss from './pages/TripletLoss';
 import Faiss from './pages/Faiss';
 import OpenVINO from './pages/OpenVINO';
 import Results from './pages/Results';
+import MemberProfile from './pages/MemberProfile';
+import LRLPR from './pages/LRLPR';
 import Demo from './pages/Demo';
 import NotFound from './pages/NotFound';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -50,6 +52,8 @@ const App = () => (
               <Route path="/results" element={<Results />} />
               <Route path="/demo" element={<Demo />} />
               <Route path="/team" element={<Team />} />
+              <Route path="/team/:memberId" element={<MemberProfile />} />
+              <Route path="/lrlpr" element={<LRLPR />} />
               <Route path="/future" element={<Future />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

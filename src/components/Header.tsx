@@ -21,6 +21,7 @@ const navigation = [
       { name: 'Triplet Loss', href: '/triplet-loss' },
       { name: 'Faiss Index', href: '/faiss' },
       { name: 'OpenVINO', href: '/openvino' },
+      { name: 'LRLPR (Biển số)', href: '/lrlpr' },
     ],
   },
   { name: 'Kết quả', href: '/results' },
@@ -120,7 +121,7 @@ export default function Header() {
                 >
                   {item.name}
                 </Link>
-              )
+              ),
             )}
           </div>
 
@@ -214,7 +215,7 @@ export default function Header() {
                 >
                   {item.name}
                 </Link>
-              )
+              ),
             )}
           </div>
         </div>

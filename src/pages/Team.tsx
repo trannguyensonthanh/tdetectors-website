@@ -16,8 +16,10 @@ import {
   Building2,
   ChevronDown,
   ChevronUp,
+  ArrowRight,
 } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Team() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -41,6 +43,7 @@ export default function Team() {
   const teamMembers = [
     {
       name: 'Nguyễn Duy Thái',
+      slug: 'nguyen-duy-thai',
       role: 'Team Leader & System Architect & Lead AI Model Engineer',
       responsibilities:
         'Chịu trách nhiệm thiết kế kiến trúc hệ thống tổng thể và quản lý dự án.',
@@ -50,11 +53,13 @@ export default function Team() {
         'Performance Optimization',
         'Python',
       ],
+      achievements: ['🏆 Top 10 ICPR 2026 LRLPR', '🎯 15.23 FPS on Intel CPU'],
       github: 'https://github.com/ThaiTOm',
       email: 'n22dccn077@student.ptithcm.edu.vn',
     },
     {
       name: 'Trần Nguyễn Sơn Thành',
+      slug: 'tran-nguyen-son-thanh',
       role: 'AI Model Engineer & Data Scientist (Support and Optimization)',
       responsibilities:
         'Hỗ trợ phát triển và huấn luyện mô hình YOLOv12, ViT, và Re-ID, thu thập dữ liệu.',
@@ -65,15 +70,21 @@ export default function Team() {
         'Computer Vision',
         'Web development',
       ],
+      achievements: ['🏆 Top 10 ICPR 2026 LRLPR', '🧠 ResTranOCR V2 Architect'],
       github: 'https://github.com/trannguyensonthanh',
       email: 'n22dccn078@student.ptithcm.edu.vn',
     },
     {
       name: 'Cao Duy Thái',
+      slug: 'cao-duy-thai',
       role: 'Data & Integration Specialist',
       responsibilities:
         'Thu thập và xử lý dữ liệu, tích hợp Faiss, xây dựng pipeline tracking',
       skills: ['Data Engineering', 'BoT-SORT', 'Faiss', 'Database Management'],
+      achievements: [
+        '🏆 Top 10 ICPR 2026 LRLPR',
+        '📦 Physics-based Data Pipeline',
+      ],
       github: 'https://github.com/caoduythai',
       email: 'n22dccn076@student.ptithcm.edu.vn',
     },
@@ -96,9 +107,9 @@ export default function Team() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-background/80">
-      {/* School Info Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-7xl">
+          {/* School Info */}
           <div className="text-center mb-16 animate-fade-in bg-tech-card/50 backdrop-blur-sm p-8 rounded-2xl border border-tech-border">
             <Building2 className="w-16 h-16 mx-auto mb-6 text-primary" />
 
@@ -215,71 +226,77 @@ export default function Team() {
                 Đội ngũ phát triển
               </h2>
               <p className="text-muted-foreground">
-                Ba thành viên chính xây dựng hệ thống Tdetectors
+                Ba thành viên chính xây dựng hệ thống Tdetectors (Bấm vào từng
+                thành viên để xem hồ sơ chi tiết)
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {teamMembers.map((member, index) => (
-                <Card
-                  key={index}
-                  className="border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <CardHeader>
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl font-bold text-primary">
-                      {member.name.charAt(0)}
-                    </div>
-                    <CardTitle className="text-xl text-center">
-                      {member.name}
-                    </CardTitle>
-                    <CardDescription className="text-center font-medium">
-                      {member.role}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-sm mb-2 text-primary">
-                        Trách nhiệm:
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {member.responsibilities}
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm mb-2 text-primary">
-                        Kỹ năng:
-                      </h4>
-                      <div className="flex flex-wrap gap-1.5">
-                        {member.skills.map((skill, skillIndex) => (
-                          <Badge
-                            key={skillIndex}
-                            variant="outline"
-                            className="text-xs border-primary/30"
-                          >
-                            {skill}
-                          </Badge>
-                        ))}
+                <Link key={index} to={`/team/${member.slug}`}>
+                  <Card
+                    key={index}
+                    className="border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-2 cursor-pointer group h-full"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <CardHeader>
+                      <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl font-bold text-primary">
+                        {member.name.charAt(0)}
                       </div>
-                    </div>
-                    <div className="flex gap-4 pt-2">
-                      <a
-                        href={member.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Github className="w-5 h-5" />
-                      </a>
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Mail className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
+                      <CardTitle className="text-xl text-center">
+                        {member.name}
+                      </CardTitle>
+                      <CardDescription className="text-center font-medium">
+                        {member.role}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold text-sm mb-2 text-primary">
+                          Trách nhiệm:
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          {member.responsibilities}
+                        </p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-sm mb-2 text-primary">
+                          Kỹ năng:
+                        </h4>
+                        <div className="flex flex-wrap gap-1.5">
+                          {member.skills.map((skill, skillIndex) => (
+                            <Badge
+                              key={skillIndex}
+                              variant="outline"
+                              className="text-xs border-primary/30"
+                            >
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex gap-4 pt-2">
+                        <a
+                          href={member.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Github className="w-5 h-5" />
+                        </a>
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Mail className="w-5 h-5" />
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-center gap-2 pt-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                        Xem hồ sơ chi tiết <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tdetectors</title>
+    <!-- Tải Tailwind CSS trực tiếp từ CDN để file này có thể chạy độc lập -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tải các font chữ cần thiết -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* CSS tùy chỉnh để định dạng trang in A4 và các hiệu ứng đặc biệt */
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact; /* Đảm bảo màu nền được in */
+          print-color-adjust: exact;
+        }
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        overflow: hidden; /* Ẩn thanh cuộn */
+      }
+      .font-firacode {
+        font-family: 'Fira Code', monospace;
+      }
+      .glow {
+        text-shadow: 0 0 12px rgba(239, 68, 68, 0.7);
+      }
+      .glow-box {
+        box-shadow: 0 0 25px rgba(239, 68, 68, 0.5);
+      }
+    </style>
+  </head>
+  <body class="bg-[#0a192f] text-[#E5E7EB]">
+    <div class="w-full h-full p-8 flex flex-col relative overflow-hidden">
+      <!-- Background Decor -->
+      <div class="absolute inset-0 z-0 opacity-30">
+        <!-- YÊU CẦU HÌNH ẢNH: public/images/backgrounds/flyer-bg.png -->
+        <!-- Gợi ý: Một ảnh nền công nghệ dạng lưới hoặc mạch điện tử màu xanh cyan mờ -->
+        <img
+          src="public/images/backgrounds/flyer-bg.png"
+          class="w-full h-full object-cover"
+          alt=""
+        />
+      </div>
+
+      <div class="relative z-10 flex flex-col h-full">
+        <!-- 1. HEADER -->
+        <header
+          class="flex justify-between items-center border-b-2 border-red-500/30 pb-4"
+        >
+          <div>
+            <h1 class="text-6xl font-black text-red-500 tracking-tighter">
+              TDETECTORS
+            </h1>
+            <p class="text-lg text-[#d6dae3]">
+              Giải mã Hành trình Phương tiện Đô thị trên Nền tảng CPU
+            </p>
+          </div>
+          <!-- YÊU CẦU HÌNH ẢNH: public/images/logos/ptit-logo-white.png -->
+          <!-- Gợi ý: Logo PTIT phiên bản màu trắng -->
+          <img
+            src="public/images/logos/ptithcm-logo.png"
+            alt="PTIT Logo"
+            class="h-16"
+          />
+        </header>
+
+        <!-- 2. MAIN CONTENT -->
+        <main class="flex-grow grid grid-cols-3 gap-6 mt-6">
+          <!-- Cột Trái (Vấn đề & Giải pháp) -->
+          <div class="col-span-1 flex flex-col space-y-6">
+            <div>
+              <h2 class="text-xl font-bold text-red-500 mb-2">THÁCH THỨC</h2>
+              <ul
+                class="text-sm text-[#d8dce2] space-y-1 list-disc list-inside"
+              >
+                <li>Ùn tắc giao thông</li>
+                <li>Mạng lưới camera rời rạc</li>
+                <li>Chi phí triển khai cao</li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-red-500 mb-2">GIẢI PHÁP</h2>
+              <p class="text-sm text-white">
+                Sử dụng một pipeline AI end-to-end, đã được tối ưu hóa bằng
+                <strong class="font-bold">Intel® OpenVINO™</strong> để xử lý đa
+                luồng camera trên CPU.
+              </p>
+            </div>
+            <div class="bg-[#112240] p-4 rounded-lg">
+              <h3 class="text-lg font-bold text-center text-red-500 mt-3">
+                CÔNG NGHỆ CỐT LÕI
+              </h3>
+              <!-- YÊU CẦU HÌNH ẢNH: public/images/tech-logos-strip.png -->
+              <!-- Gợi ý: Ghép các logo YOLO, BoT-SORT, ViT, Faiss, OpenVINO thành 1 hàng ngang -->
+              <img
+                src="public/images/tech-logos-stack.png"
+                alt="Tech Stack Logos"
+                class="w-full h-[410px] max-h-full relative top-3"
+              />
+            </div>
+          </div>
+
+          <!-- Cột Giữa (Kết quả & Demo) -->
+          <div class="col-span-2 flex flex-col">
+            <div
+              class="bg-red-500/10 border-2 border-red-500 rounded-lg p-6 text-center glow-box"
+            >
+              <h2 class="text-2xl font-bold text-white mb-2 glow">
+                KẾT QUẢ ĐỘT PHÁ
+              </h2>
+              <p class="text-lg text-white mb-4">
+                Hiệu năng Thời gian thực trên CPU Phổ thông
+              </p>
+              <div class="flex items-center justify-center space-x-4">
+                <div class="text-center">
+                  <p class="text-sm text-gray-400">BASELINE (PYTORCH)</p>
+                  <p class="text-5xl font-black text-gray-400 font-firacode">
+                    0.17 <span class="text-2xl">FPS</span>
+                  </p>
+                </div>
+                <p class="text-5xl text-red-500 font-black glow">&rarr;</p>
+                <div class="text-center">
+                  <p class="text-sm text-white">OPTIMIZED (OPENVINO™)</p>
+                  <p
+                    class="text-5xl font-black text-red-500 font-firacode glow"
+                  >
+                    15.23 <span class="text-2xl">FPS</span>
+                  </p>
+                </div>
+              </div>
+              <p class="text-3xl font-black text-white mt-4 glow">
+                TĂNG TỐC ~8900%
+              </p>
+            </div>
+            <!-- YÊU CẦU HÌNH ẢNH: public/images/reid-demo-composite.png -->
+            <!-- Gợi ý: Dùng lại ảnh demo xe tải đã chuẩn bị cho slide -->
+            <img
+              src="public/images/reid-demo-composite.png"
+              alt="Demo Tái định danh"
+              class="mt-6 rounded-lg border-2 border-gray-700 flex-grow"
+            />
+          </div>
+        </main>
+
+        <!-- 3. FOOTER (QR Code & Team) -->
+        <footer
+          class="mt-6 pt-4 border-t-2 border-red-500/30 flex justify-between"
+        >
+          <div class="text-xs">
+            <p class="font-bold text-red-500 text-lg">Đội ngũ NCKH PTITHCM:</p>
+            <p class="text-[#dee3ec] mt-2 text-base">
+              <span class="font-semibold">Nguyễn Duy Thái</span>
+              (N22DCCN077)<br />
+              <span class="font-semibold">Trần Nguyễn Sơn Thành</span>
+              (N22DCCN078)<br />
+              <span class="font-semibold">Cao Duy Thái</span> (N22DCCN076)
+            </p>
+            <p class="text-[#d1d6de] mt-1 text-base">
+              GVHD: <span class="font-semibold">Mr. Huỳnh Trung Trụ</span>
+            </p>
+          </div>
+          <div class="text-center">
+            <!-- YÊU CẦU HÌNH ẢNH: public/images/web-qr-code.png -->
+            <!-- Gợi ý: Dùng lại QR code đã chuẩn bị cho slide -->
+            <img
+              src="public/images/web-qr-code_19127.png"
+              alt="QR Code"
+              class="h-28 w-28 mx-auto p-1 bg-white rounded-md"
+            />
+            <p class="text-sm font-bold text-red-500 mt-2 glow">
+              QUÉT ĐỂ KHÁM PHÁ DỰ ÁN
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

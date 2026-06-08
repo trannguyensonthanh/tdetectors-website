@@ -136,7 +136,7 @@ export default function Footer() {
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Github className="h-5 w-5 text-primary flex-shrink-0" />
                 <a
-                  href="https://github.com/ThaiTOm/Tdetectors"
+                  href=""
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"

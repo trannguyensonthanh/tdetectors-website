@@ -283,11 +283,7 @@ export default function Demo() {
                 Truy cập mã nguồn đầy đủ, tài liệu hướng dẫn, và pretrained
                 models
               </p>
-              <a
-                href="https://github.com/ThaiTOm/Tdetectors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                   <Github className="mr-2 h-5 w-5" />
                   View on GitHub
